@@ -1,0 +1,65 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     <%= @db_host =>
+    database_port:     ~
+    database_name:     <%= @db_name =>
+    database_user:     <%= @db_user =>
+    database_password: <%= @db_passwd =>
+
+    mailer_transport:  smtp
+    mailer_host:       'email-smtp.us-east-1.amazonaws.com'
+    mailer_user:       <%= @mailuser =>
+    mailer_password:   <%= @mailpasswd =>
+    mailer_from:       'support@powerli.ne'
+    mailer_beta_access_recipient: 'info@powerli.ne'
+
+    locale: en
+    secret: <%= @secret =>
+    domain: <%= @domain =>
+
+    amazon_s3.key: <%= @s3_key =>
+    amazon_s3.secret: <%= @s3_secret =>
+    amazon_s3.region: eu-west-1
+    amazon_s3.bucket: <%= @s3_bucket =>
+    amazon_s3.url: <%= @s3_url =>
+
+    amazon_sns.android_arn: <%= @sns_android_arn =>
+    amazon_sns.ios_arn: <%= @sns_ios_arn =>
+
+    recaptcha_public_key:   <%= @recaptcha_public =>
+    recaptcha_private_key:  <%= @recaptcha_private =>
+    recaptcha_secure:       false
+    recaptcha_locale_key:   kernel.default_locale
+    recaptcha_enabled:      true
+
+    cicero_login: <%= @cicero_user =>
+    cicero_password: <%= @cicero_passwd =>
+
+    android_api_key: <%= @android_api_key =>
+    android_app: <%= @android_app =>
+
+    ios_is_sanbox: false
+    ios_pem_path:  <%= @ios_pem =>
+    ios_passphrase: ~
+
+    sunlightapi_token: <%= @sunlightapi_token =>
+
+    balanced_payment_api_key: <%= @balanced_api_key =>
+    balanced_payment_marketplace_user_id: <%= @balanced_user_id =>
+
+    stripe_api_key: <%= @stripe_api_key =>
+    stripe_publishable_key: <%= @stripe_pub_key =>
+
+    rabbitmq_connections:
+        default: { host: 'localhost', port: 5672, user: <%= @rabbit_user =>, password: <%= @rabbit_passwd =>, vhost: 'civix' }
+
+    mailgun_public: <%= @mailgun_public =>
+    mailgun_private: <%= @mailgun_private =>
+
+    auto_invite_group_id: 1
+    imgix.domain: <%= @imgix_domain =>
+
+    default_api_version: 1
+
+    facebook_client_id: <%= @facebook_id =>
+    facebook_client_secret: <%= @facebook_secret =>

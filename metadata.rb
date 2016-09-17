@@ -1,0 +1,12 @@
+name 'powerline-chef-apiserver'
+maintainer 'powerline'
+maintainer_email 'austin at powerli dot ne'
+license 'all_rights'
+version '0.1.0'
+
+depends 'powerline-chef-baseline'
+depends 'poise-python'
+depends 'php'
+depends 'supervisor'
+depends 'php-fpm'
+depends 'nginx'

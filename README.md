@@ -1,2 +1,4 @@
-# chef-apiserver
-API Server
+# powerline-chef-apiserver
+
+TODO: Enter the cookbook description here.
+
