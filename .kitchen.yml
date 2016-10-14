@@ -7,10 +7,35 @@ provisioner:
 
 platforms:
   - name: ubuntu-14.04
-  - name: centos-7.2
+
+<% creds = YAML.load_file('.credentials.yml') %>
 
 suites:
-  - name: default
+  - name: setup
     run_list:
-      - recipe[powerline-chef-apiserver::default]
+      - recipe[powerline-chef-apiserver::setup]
     attributes:
+      civix:
+        env : test
+  - name: configure
+    run_list:
+      - recipe[powerline-chef-apiserver::setup]
+      - recipe[powerline-chef-apiserver::configure]
+    attributes:
+      civix:
+        env : dev
+      aws:
+        access_key: <%= creds['aws']['access_key'] %>
+        secret_key: <%= creds['aws']['secret_key'] %>
+
+  - name: full
+    run_list:
+      - recipe[powerline-chef-apiserver::setup]
+      - recipe[powerline-chef-apiserver::configure]
+      - recipe[powerline-chef-apiserver::deploy]
+    attributes:
+      civix:
+        env : dev
+      aws:
+        access_key: <%= creds['aws']['access_key'] %>
+        secret_key: <%= creds['aws']['secret_key'] %>

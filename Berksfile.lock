@@ -1,5 +1,8 @@
 DEPENDENCIES
-  nginx
+  aws
+  aws-sdk
+  composer
+  nginx (~> 2.7.6)
   php
   php-fpm
   poise-python
@@ -8,21 +11,33 @@ DEPENDENCIES
     metadata: true
   powerline-chef-baseline
     git: git@github.com:PowerlineDevOps/powerline-chef-baseline.git
-    revision: a41c82533e00f94262a57fb7f0d45451f4780bdd
+    revision: df6e0821736fa617f4335d9049f1991d3bd7abaa
+  rabbitmq
   supervisor
 
 GRAPH
-  7-zip (1.0.2)
-    windows (>= 1.2.2)
-  apt (2.9.2)
+  apt (2.4.0)
+  aws (4.0.0)
+    ohai (>= 2.1.0)
+  aws-sdk (1.42.0)
+    apt (~> 2.4.0)
+    build-essential (~> 2.0.2)
   bluepill (2.4.3)
     rsyslog (>= 2.0)
-  build-essential (2.4.0)
-    7-zip (>= 0.0.0)
-  compat_resource (12.14.3)
-  iis (5.0.0)
+  build-essential (2.0.6)
+  compat_resource (12.14.7)
+  composer (2.4.0)
+    apt (>= 0.0.0)
+    php (>= 0.0.0)
+    windows (>= 0.0.0)
+  dpkg_autostart (0.2.0)
+  erlang (1.3.2)
+    apt (>= 1.7.0)
+    build-essential (>= 0.0.0)
+    yum (>= 0.5.0)
+  iis (5.0.4)
     windows (>= 1.34.6)
-  mysql (8.0.3)
+  mysql (8.0.4)
   nginx (2.7.6)
     apt (~> 2.2)
     bluepill (~> 2.3)
@@ -51,17 +66,26 @@ GRAPH
     poise (~> 2.7)
     poise-languages (~> 2.0)
   powerline-chef-apiserver (0.1.0)
+    aws (>= 0.0.0)
+    aws-sdk (>= 0.0.0)
+    composer (>= 0.0.0)
     nginx (>= 0.0.0)
     php (>= 0.0.0)
     php-fpm (>= 0.0.0)
     poise-python (>= 0.0.0)
     powerline-chef-baseline (>= 0.0.0)
+    rabbitmq (>= 0.0.0)
     supervisor (>= 0.0.0)
   powerline-chef-baseline (0.1.0)
     apt (>= 0.0.0)
   python (1.4.6)
     build-essential (>= 0.0.0)
     yum-epel (>= 0.0.0)
+  rabbitmq (4.10.0)
+    dpkg_autostart (>= 0.0.0)
+    erlang (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+    yum-erlang_solutions (>= 0.0.0)
   rsyslog (4.0.1)
     compat_resource (>= 0.0.0)
   runit (1.8.0)
@@ -75,3 +99,6 @@ GRAPH
   yum (4.0.0)
   yum-epel (0.7.1)
     yum (>= 3.6.3)
+  yum-erlang_solutions (1.0.0)
+    yum (>= 3.2)
+    yum-epel (>= 0.0.0)
