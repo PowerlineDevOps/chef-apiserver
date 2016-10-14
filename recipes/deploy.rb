@@ -33,15 +33,15 @@ aws_s3_file "/srv/parameters.yml" do
 end
 
 
-#include_recipe 'composer'
-#composer_project '/srv/civix/app' do
-#    user 'civix'
-#    group 'civix'
-#    dev false # Ensures that development packages are not installed in the production environment.
-#    quiet true # Do not output any message.
-#    optimize_autoloader true # Convert PSR 0-4 autoloading to classmap to get a faster autoloader. (Recommended for production)
-#    action :install
-#end
+include_recipe 'composer'
+composer_project '/srv/staging/server/backend' do
+    user 'civix'
+    group 'civix'
+    dev true
+    quiet true # Do not output any message.
+    optimize_autoloader true # Convert PSR 0-4 autoloading to classmap to get a faster autoloader. (Recommended for production)
+    action :install
+end
 
 
 #execute 'clean_symfony_cache' do
