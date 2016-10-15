@@ -17,7 +17,7 @@ else
 end
 
 git "/srv/staging/server" do
-    repository "git@github.com:PowerlineApp/powerline-server.git"
+    repository "https://github.com/PowerlineApp/powerline-server.git"
     revision branch
     action :sync
 end
