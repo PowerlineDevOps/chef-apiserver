@@ -1,4 +1,6 @@
 
+include_recipe "powerline-chef-apiserver::config_file"
+
 directory "#{node[:deploy][:deploy_to]}" do
   group node[:nginx][:group]
   owner node[:nginx][:user]
@@ -22,15 +24,11 @@ git "/srv/staging/server" do
     action :sync
 end
 
+# pulls latest config
+#
 # This needs to change so that we build the parameters.yml
 # from a template. Using this method for now.
-include_recipe 'aws'
-aws_s3_file "/srv/parameters.yml" do
-  bucket "deployment-data"
-  remote_path "#{node[:civix][:env]}/configs/parameters.yml"
-  aws_access_key_id node['aws']['access_key']
-  aws_secret_access_key node['aws']['secret_key']
-end
+include_recipe 'powerline-chef-apiserver::config_file'
 
 
 include_recipe 'composer'
