@@ -1,0 +1,23 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-14.04
+
+<% creds = YAML.load_file('.credentials.yml') %>
+
+suites:
+  - name: default
+    run_list:
+      - recipe[pl-nginx::setup]
+      - recipe[pl-nginx::configure]
+      - recipe[pl-nginx::certs]
+      - recipe[pl-nginx::restart]
+    attributes:
+      env: test
+      aws_access_key: <%= creds['aws']['access_key'] %>
+      aws_secret_key: <%= creds['aws']['secret_key'] %>
