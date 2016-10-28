@@ -1,6 +1,6 @@
 #!/bin/bash
 # simple script to package up berks dependencies and push
-# to s3 bucket
+# to s3 bucket for api-server
 if [ ! -z $1 ]; then
   PACKAGE="${1}.tar.gz"
 else
