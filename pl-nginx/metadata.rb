@@ -5,4 +5,6 @@ license 'all_rights'
 version '0.1.0'
 
 depends 'chef_nginx'
+depends 'aws'
+depends 'aws-sdk'
 depends 'powerline-chef-baseline'
