@@ -1,8 +1,8 @@
 
-if ['test', 'dev'].include? node['civix']['env']
+if ['test', 'dev'].include? node['env']
   env = 'dev'
 else
-  env = node['civix']['env']
+  env = node['env']
 end
 
 supervisor_service "civix_push_queue" do
@@ -17,7 +17,7 @@ supervisor_service "civix_push_queue" do
 end
 
 supervisor_service "civix_payments" do
-  action [:enable, :start]
+  action :enable
   command "php /srv/civix/app/console payment-request:start -e=#{env}"
   autorestart true
   user node['user']

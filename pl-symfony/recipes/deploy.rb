@@ -1,7 +1,7 @@
 
 is_dev = false
 
-case node[:civix][:env]
+case node[:env]
 when 'test', 'dev'
   branch = 'develop'
   is_dev = true
